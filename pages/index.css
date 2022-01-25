@@ -10,4 +10,22 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
-@import url(../blocks/button/button.css);
+@import url(../blocks/profile/__button-add/profile__button-add.css);
+@import url(../blocks/profile/__button-edit.css/profile__button-edit.css);
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__image/elements__image.css);
+@import url(../blocks/elements/__name-container/elements__name-container.css);
+@import url(../blocks/elements/__name/elements__name.css);
+@import url(../blocks/elements/__like/elements__like.css);
+@import url(../blocks/elements/__like/_active/elements__like_active.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/footer/__author-link/footer__author-link.css);
+
+
+
+
+
+
+
+

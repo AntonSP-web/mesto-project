@@ -21,10 +21,10 @@
           <img src="./images/avatar.jpg" alt="Жак-Ив Кусто" class="profile__photo">
           <div class="profile__info">
             <h2 class="profile__name">Жак-Ив Кусто</h2>
-            <button class="button profile__button-edit"></button>
+            <button class="profile__button-edit"></button>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
-          <button class="button profile__button-add"></button>
+          <button class="profile__button-add"></button>
         </section>
 
         <!-- <div class="popup">
@@ -34,61 +34,65 @@
               <fieldset class="popup__input-container">
                 <input type="text" class="popup__item">
                 <input type="text" class="popup__item">
-                <button class="button popup__button">Сохранить</button>
+                <button class="popup__button">Сохранить</button>
               </fieldset>
               <img src="./images/Close-Icon.svg" alt="Закрыть страницу" class="popup__close-icon">
             </form>
           </div>
         </div> -->
 
-        <section class="elements">
-          <div class="element">
-            <img src="./images/kirill-pershin-1088404-unsplash2.jpg" alt="карачаевск" class="element__image">
-            <div class="element__name-container">
-              <h3 class="element__name">Карачаевск</h3>
-              <img src="./images/like.svg" alt="лайк" class="element__like">
-            </div>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="гора Эльбрус" class="element__image">
-            <div class="element__name-container">
-              <h3 class="element__name">Гора Эльбрус</h3>
-              <img src="./images/like.svg" alt="лайк" class="element__like">
-            </div>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="домбай" class="element__image">
-            <div class="element__name-container">
-              <h3 class="element__name">Домбай</h3>
-              <img src="./images/like.svg" alt="лайк" class="element__like">
-            </div>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1404681-unsplash2.jpg" alt="гора Эльбрус" class="element__image">
-            <div class="element__name-container">
-              <h3 class="element__name">Гора Эльбрус</h3>
-              <img src="./images/like.svg" alt="лайк" class="element__like">
-            </div>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1556355-unsplash2.jpg" alt="домбай" class="element__image">
-            <div class="element__name-container">
-              <h3 class="element__name">Домбай</h3>
-              <img src="./images/like.svg" alt="лайк" class="element__like">
-            </div>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1088404-unsplash2.jpg" alt="карачаевск" class="element__image">
-            <div class="element__name-container">
-              <h3 class="element__name">Карачаево-Черкессия</h3>
-              <img src="./images/like.svg" alt="лайк" class="element__like">
-            </div>
-          </div>
+        <section>
+          <ul class="elements">
+            <li class="elements__item">
+              <img src="./images/kirill-pershin-1088404-unsplash2.jpg" alt="карачаевск" class="elements__image">
+              <div class="elements__name-container">
+                <h3 class="elements__name">Карачаевск</h3>
+                <img src="./images/like.svg" alt="сердечко для лайка" class="elements__like elements__like_active">
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="гора Эльбрус" class="elements__image">
+              <div class="elements__name-container">
+                <h3 class="elements__name">Гора Эльбрус</h3>
+                <img src="./images/like.svg" alt="сердечко для лайка" class="elements__like">
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="домбай" class="elements__image">
+              <div class="elements__name-container">
+                <h3 class="elements__name">Домбай</h3>
+                <img src="./images/like.svg" alt="сердечко для лайка" class="elements__like">
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/kirill-pershin-1404681-unsplash2.jpg" alt="гора Эльбрус" class="elements__image">
+              <div class="elements__name-container">
+                <h3 class="elements__name">Гора Эльбрус</h3>
+                <img src="./images/like.svg" alt="сердечко для лайка" class="elements__like">
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/kirill-pershin-1556355-unsplash2.jpg" alt="домбай" class="elements__image">
+              <div class="elements__name-container">
+                <h3 class="elements__name">Домбай</h3>
+                <img src="./images/like.svg" alt="сердечко для лайка" class="elements__like">
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/kirill-pershin-1088404-unsplash2.jpg" alt="карачаевск" class="elements__image">
+              <div class="elements__name-container">
+                <h3 class="elements__name">Карачаево-Черкессия</h3>
+                <img src="./images/like.svg" alt="сердечко для лайка" class="elements__like">
+              </div>
+            </li>
+          </ul>
         </section>
       </main>
 
       <footer class="footer">
-        <p class="copyright">&copy; 2022 Mesto Russia</p>
+        <p class="footer__copyright">
+          <a href="https://github.com/AntonSP-web" class="footer__author-link">&copy; 2022 Mesto Russia by Антон СП</a>
+        </p>
       </footer>
     </div>
   </div>
