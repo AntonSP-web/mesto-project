@@ -1,0 +1,11 @@
+.popup__close-icon {
+  position: fixed;
+  top: -40px;
+  right: -40px;
+  cursor: pointer;
+  transition: opacity .3s ease-in;
+}
+
+.popup__close-icon:hover {
+  opacity: .6;
+}
