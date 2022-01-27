@@ -6,9 +6,16 @@
   margin: 0 18px 0 30px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 560px) {
   .profile__info {
     justify-content: center;
+    align-items: baseline;
+    margin: 26px 18px 0 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile__info {
     margin: 26px 0 32px 0;
   }
 }
