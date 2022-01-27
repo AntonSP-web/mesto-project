@@ -2,6 +2,11 @@
   background: url(../../images/header/logo.svg) center/contain no-repeat;
   width: 142px;
   height: 34px;
+  transition: opacity .3s ease-in;
+}
+
+.logo:hover {
+  opacity: .6;
 }
 
 @media screen and (max-width: 425px) {
