@@ -1,9 +1,10 @@
 .profile__name {
+  max-width: 295px;
   color: #fff;
   font-size: 42px;
   line-height: 46px;
   font-weight: 500;
-  margin: 0 18px 10px 0;
+  margin: 0 8px 10px 0;
 }
 
 @media screen and (max-width: 425px) {

@@ -25,62 +25,48 @@
           <button type="button" class="profile__button-add"></button>
         </section>
 
-        <div class="popup popup_opened">
-          <div class="popup__container">
-            <h2 class="popup__heading">Редактировать профиль</h2>
-            <form action="#" class="form" name="user">
-              <fieldset class="form__input-container">
-                <input type="text" class="form__input-item" name="user-name" placeholder="Имя">
-                <input type="text" class="form__input-item" name="user-about" placeholder="О себе">
-                <button type="submit" class="form__button">Сохранить</button>
-              </fieldset>
-            </form>
-            <img src="./images/popup/Close-Icon.svg" alt="Закрыть страницу" class="popup__close-icon">
-          </div>
-        </div>
-
         <section>
           <ul class="elements">
             <li class="elements__item">
               <img src="./images/elements/Karachaevsk.jpg" alt="Карачаевск" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Карачаевск</h3>
-                <img src="./images/elements/like.svg" alt="лайк" class="elements__like elements__like_active">
+                <button type="button" class="elements__like elements__like_active"></button>
               </div>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Elbrus.jpg" alt="гора Эльбрус" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Гора Эльбрус</h3>
-                <img src="./images/elements/like.svg" alt="лайк" class="elements__like">
+                <button type="button" class="elements__like"></button>
               </div>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Dombaj.jpg" alt="Домбай" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Домбай</h3>
-                <img src="./images/elements/like.svg" alt="лайк" class="elements__like">
+                <button type="button" class="elements__like"></button>
               </div>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Elbrus.jpg" alt="гора Эльбрус" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Гора Эльбрус</h3>
-                <img src="./images/elements/like.svg" alt="лайк" class="elements__like">
+                <button type="button" class="elements__like"></button>
               </div>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Dombaj.jpg" alt="Домбай" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Домбай</h3>
-                <img src="./images/elements/like.svg" alt="лайк" class="elements__like">
+                <button type="button" class="elements__like"></button>
               </div>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Karachaevsk.jpg" alt="Карачаевск" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Карачаево-Черкессия</h3>
-                <img src="./images/elements/like.svg" alt="лайк" class="elements__like">
+                <button type="button" class="elements__like"></button>
               </div>
             </li>
           </ul>
@@ -92,6 +78,20 @@
           <a href="https://github.com/AntonSP-web" class="footer__author-link">&copy; 2022 Mesto Russia by Антон СП</a>
         </p>
       </footer>
+
+      <div class="popup">
+        <div class="popup__container">
+          <h2 class="popup__heading">Редактировать профиль</h2>
+          <form action="#" class="form" name="user">
+            <fieldset class="form__input-container">
+              <input type="text" class="form__input-item" name="user-name" placeholder="Имя">
+              <input type="text" class="form__input-item" name="user-about" placeholder="О себе">
+              <button type="submit" class="form__button">Сохранить</button>
+            </fieldset>
+          </form>
+          <img src="./images/popup/Close-Icon.svg" alt="Закрыть страницу" class="popup__close-icon">
+        </div>
+      </div>
     </div>
   </div>
 </body>
