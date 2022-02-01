@@ -1,6 +1,5 @@
 .profile {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   min-height: 120px;
   padding: 40px 0 50px;
@@ -8,12 +7,13 @@
 
 @media screen and (max-width: 712px) {
   .profile {
+    flex-direction: column;
     justify-content: center;
     padding: 20px 0;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 400px) {
   .profile {
     padding: 0 0 36px;
   }
