@@ -34,7 +34,7 @@
               <img src="./images/elements/Karachaevsk.jpg" alt="Карачаевск" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Карачаевск</h3>
-                <button type="button" class="elements__like elements__like_active"></button>
+                <button type="button" class="elements__like"></button>
               </div>
             </li>
             <li class="elements__item">
@@ -82,7 +82,7 @@
         </p>
       </footer>
 
-      <div class="popup">
+      <div class="popup popup_type_profile">
         <div class="popup__container">
           <h2 class="popup__heading">Редактировать профиль</h2>
           <form action="#" class="form" name="user">
@@ -96,13 +96,13 @@
         </div>
       </div>
 
-      <div class="popup popup_opened">
+      <div class="popup popup_type_add-item">
         <div class="popup__container">
           <h2 class="popup__heading">Новое место</h2>
-          <form action="#" class="form" name="user">
+          <form action="#" class="form" name="image">
             <fieldset class="form__input-container">
-              <input type="text" class="form__input-item" name="user-name" placeholder="Название">
-              <input type="text" class="form__input-item" name="user-about" placeholder="Ссылка на картинку">
+              <input type="text" class="form__input-item" name="image-name" placeholder="Название">
+              <input type="text" class="form__input-item" name="image-link" placeholder="Ссылка на картинку">
               <button type="submit" class="form__button">Создать</button>
             </fieldset>
           </form>
