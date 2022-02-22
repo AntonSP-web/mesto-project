@@ -81,7 +81,34 @@ const profileAbout = container.querySelector('.profile__subtitle');
 const addItemPopUp = container.querySelector('.popup_type_add-item');
 const addItemButton = container.querySelector('.profile__button-add');
 const addItemCloseButton = addItemPopUp.querySelector('.popup__close-button');
+const profileForm = container.querySelector('.form');
 
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 // profile popUp
 
 profileEditButton.addEventListener('click', function() {
@@ -104,10 +131,44 @@ addItemCloseButton.addEventListener('click', function() {
   closePopUp(addItemPopUp);
 })
 
+// save profile changes
+
+profileForm.addEventListener('submit', submitProfile);
+
+
+// 6 pictures by default
+
+const elementsList = container.querySelector('.elements');
+const elementTemplate = container.querySelector('.item-template').content;
+
+function createElement(elementName, elementLink) {
+  const element = elementTemplate.cloneNode(true);
+
+  element.querySelector('.elements__image').src = elementLink;
+  element.querySelector('.elements__image').alt = elementName;
+  element.querySelector('.elements__name').textContent = elementName;
+
+  elementsList.prepend(element);
+}
+
+initialCards.forEach(item => {
+  createElement(item.name, item.link);
+})
+
+
+
+
 function openPopUp(popup) {
   popup.classList.add('popup_opened');
 };
 
 function closePopUp(popup) {
   popup.classList.remove('popup_opened');
+}
+
+function submitProfile(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+  closePopUp(profilePopUp);
 }
