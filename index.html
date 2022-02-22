@@ -82,7 +82,7 @@
         </p>
       </footer>
 
-      <div class="popup popup_opened">
+      <div class="popup">
         <div class="popup__container">
           <h2 class="popup__heading">Редактировать профиль</h2>
           <form action="#" class="form" name="user">
@@ -95,7 +95,22 @@
             <button type="button" class="popup__close-button"></button>
         </div>
       </div>
+
+      <div class="popup popup_opened">
+        <div class="popup__container">
+          <h2 class="popup__heading">Новое место</h2>
+          <form action="#" class="form" name="user">
+            <fieldset class="form__input-container">
+              <input type="text" class="form__input-item" name="user-name" placeholder="Название">
+              <input type="text" class="form__input-item" name="user-about" placeholder="Ссылка на картинку">
+              <button type="submit" class="form__button">Создать</button>
+            </fieldset>
+          </form>
+            <button type="button" class="popup__close-button"></button>
+        </div>
+      </div>
     </div>
   </div>
+<script src="script.js"></script>
 </body>
 </html>
