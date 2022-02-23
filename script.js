@@ -82,6 +82,20 @@ const addItemPopUp = container.querySelector('.popup_type_add-item');
 const addItemButton = container.querySelector('.profile__button-add');
 const addItemCloseButton = addItemPopUp.querySelector('.popup__close-button');
 const profileForm = container.querySelector('.form');
+const addPictureForm = addItemPopUp.querySelector('.form');
+
+
+function addPictureByUser(evt) {
+  evt.preventDefault();
+  const pictureName = addPictureForm.querySelector('[name="image-name"]');
+  const pictureLink = addPictureForm.querySelector('[name="image-link"]');
+  createElement(pictureName.value, pictureLink.value);
+  closePopUp(addItemPopUp);
+  pictureName.value = '';
+  pictureLink.value = '';
+}
+
+addPictureForm.addEventListener('submit', addPictureByUser);
 
 const initialCards = [
   {
@@ -143,7 +157,6 @@ const elementTemplate = container.querySelector('.item-template').content;
 
 function createElement(elementName, elementLink) {
   const element = elementTemplate.cloneNode(true);
-
   element.querySelector('.elements__image').src = elementLink;
   element.querySelector('.elements__image').alt = elementName;
   element.querySelector('.elements__name').textContent = elementName;
@@ -153,6 +166,12 @@ function createElement(elementName, elementLink) {
 
 initialCards.forEach(item => {
   createElement(item.name, item.link);
+})
+
+elementsList.addEventListener('click', function(evt) {
+  if(evt.target.classList.contains('elements__like')) {
+    evt.target.classList.toggle('elements__like_active');
+  }
 })
 
 
