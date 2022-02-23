@@ -168,11 +168,27 @@ initialCards.forEach(item => {
   createElement(item.name, item.link);
 })
 
+// add likes
+
 elementsList.addEventListener('click', function(evt) {
   if(evt.target.classList.contains('elements__like')) {
     evt.target.classList.toggle('elements__like_active');
   }
 })
+
+// add pictures by user
+
+function addPictureByUser(evt) {
+  evt.preventDefault();
+  const pictureName = addPictureForm.querySelector('[name="image-name"]');
+  const pictureLink = addPictureForm.querySelector('[name="image-link"]');
+  createElement(pictureName.value, pictureLink.value);
+  closePopUp(addItemPopUp);
+  pictureName.value = '';
+  pictureLink.value = '';
+}
+
+addPictureForm.addEventListener('submit', addPictureByUser);
 
 
 
