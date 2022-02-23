@@ -83,6 +83,11 @@ const addItemButton = container.querySelector('.profile__button-add');
 const addItemCloseButton = addItemPopUp.querySelector('.popup__close-button');
 const profileForm = container.querySelector('.form');
 const addPictureForm = addItemPopUp.querySelector('.form');
+const elementsList = container.querySelector('.elements');
+
+
+
+
 
 const initialCards = [
   {
@@ -139,7 +144,7 @@ profileForm.addEventListener('submit', submitProfile);
 
 // 6 pictures by default
 
-const elementsList = container.querySelector('.elements');
+
 const elementTemplate = container.querySelector('.item-template').content;
 
 function createElement(elementName, elementLink) {
@@ -177,7 +182,14 @@ function addPictureByUser(evt) {
 
 addPictureForm.addEventListener('submit', addPictureByUser);
 
+// delete items
 
+elementsList.addEventListener('click', function(evt) {
+  if(evt.target.classList.contains('elements__trash')) {
+    const item = evt.target.closest('.elements__item');
+    item.remove();
+  }
+})
 
 
 function openPopUp(popup) {
