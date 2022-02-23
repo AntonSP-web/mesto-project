@@ -1,0 +1,10 @@
+.popup__container_type_full-item {
+  border-radius: 0px;
+  background-color: transparent;
+  padding: 0;
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
