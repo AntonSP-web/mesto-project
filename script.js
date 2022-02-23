@@ -84,19 +84,6 @@ const addItemCloseButton = addItemPopUp.querySelector('.popup__close-button');
 const profileForm = container.querySelector('.form');
 const addPictureForm = addItemPopUp.querySelector('.form');
 
-
-function addPictureByUser(evt) {
-  evt.preventDefault();
-  const pictureName = addPictureForm.querySelector('[name="image-name"]');
-  const pictureLink = addPictureForm.querySelector('[name="image-link"]');
-  createElement(pictureName.value, pictureLink.value);
-  closePopUp(addItemPopUp);
-  pictureName.value = '';
-  pictureLink.value = '';
-}
-
-addPictureForm.addEventListener('submit', addPictureByUser);
-
 const initialCards = [
   {
     name: 'Архыз',
