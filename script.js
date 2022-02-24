@@ -2,15 +2,17 @@ const container = document.querySelector('.page__container');
 const profilePopUp = container.querySelector('.popup_type_profile');
 const profileEditButton = container.querySelector('.profile__button-edit');
 const profileCloseButton = container.querySelector('.popup__close-button');
-const nameInput = container.querySelector('.form__input-item_name');
-const aboutInput = container.querySelector('.form__input-item_about');
+const nameInput = container.querySelector('.form__input-item_type_name');
+const aboutInput = container.querySelector('.form__input-item_type_about');
 const profileName = container.querySelector('.profile__name');
 const profileAbout = container.querySelector('.profile__subtitle');
-const addItemPopUp = container.querySelector('.popup_type_add-item');
-const addItemButton = container.querySelector('.profile__button-add');
-const addItemCloseButton = addItemPopUp.querySelector('.popup__close-button');
+const newCardPopup = container.querySelector('.popup_type_add-item');
+const newCardButton = container.querySelector('.profile__button-add');
+const newCardCloseButton = newCardPopup.querySelector('.popup__close-button');
 const profileForm = container.querySelector('.form');
-const addPictureForm = addItemPopUp.querySelector('.form');
+const addPictureForm = newCardPopup.querySelector('.form');
+const pictureName = addPictureForm.querySelector('.form__input-item_type_title');
+const pictureLink = addPictureForm.querySelector('.form__input-item_type_link');
 const elementsList = container.querySelector('.elements');
 
 const initialCards = [
@@ -62,31 +64,32 @@ profileCloseButton.addEventListener('click', function() {
 
 // add item popUp
 
-addItemButton.addEventListener('click', function() {
-  openPopUp(addItemPopUp);
+newCardButton.addEventListener('click', function() {
+  openPopUp(newCardPopup);
 })
 
-addItemCloseButton.addEventListener('click', function() {
-  closePopUp(addItemPopUp);
+newCardCloseButton.addEventListener('click', function() {
+  closePopUp(newCardPopup);
 })
 
 // save profile changes
 
-function submitProfile(evt) {
+function handleSubmitProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
   closePopUp(profilePopUp);
 }
 
-profileForm.addEventListener('submit', submitProfile);
+profileForm.addEventListener('submit', handleSubmitProfile);
 
 // 6 pictures by default
 
 const elementTemplate = container.querySelector('.item-template').content;
 
 function createElement(elementName, elementLink) {
-  const element = elementTemplate.cloneNode(true);
+  const element= elementTemplate.querySelector('.elements__item').cloneNode(true);
+
   element.querySelector('.elements__image').src = elementLink;
   element.querySelector('.elements__image').alt = elementName;
   element.querySelector('.elements__name').textContent = elementName;
@@ -108,17 +111,14 @@ elementsList.addEventListener('click', function(evt) {
 
 // add pictures by user
 
-function addPictureByUser(evt) {
+function handleSubmitNewCard(evt) {
   evt.preventDefault();
-  const pictureName = addPictureForm.querySelector('.form__input-item_title');
-  const pictureLink = addPictureForm.querySelector('.form__input-item_link');
   createElement(pictureName.value, pictureLink.value);
-  closePopUp(addItemPopUp);
-  pictureName.value = '';
-  pictureLink.value = '';
+  closePopUp(newCardPopup);
+  addPictureForm.reset();
 }
 
-addPictureForm.addEventListener('submit', addPictureByUser);
+addPictureForm.addEventListener('submit', handleSubmitNewCard);
 
 // delete items
 
