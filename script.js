@@ -2,8 +2,8 @@ const container = document.querySelector('.page__container');
 const profilePopUp = container.querySelector('.popup_type_profile');
 const profileEditButton = container.querySelector('.profile__button-edit');
 const profileCloseButton = container.querySelector('.popup__close-button');
-const nameInput = container.querySelector('[name="user-name"]');
-const aboutInput = container.querySelector('[name="user-about"]');
+const nameInput = container.querySelector('.form__input-item_name');
+const aboutInput = container.querySelector('.form__input-item_about');
 const profileName = container.querySelector('.profile__name');
 const profileAbout = container.querySelector('.profile__subtitle');
 const addItemPopUp = container.querySelector('.popup_type_add-item');
@@ -95,8 +95,8 @@ elementsList.addEventListener('click', function(evt) {
 
 function addPictureByUser(evt) {
   evt.preventDefault();
-  const pictureName = addPictureForm.querySelector('[name="image-name"]');
-  const pictureLink = addPictureForm.querySelector('[name="image-link"]');
+  const pictureName = addPictureForm.querySelector('.form__input-item_title');
+  const pictureLink = addPictureForm.querySelector('.form__input-item_link');
   createElement(pictureName.value, pictureLink.value);
   closePopUp(addItemPopUp);
   pictureName.value = '';
