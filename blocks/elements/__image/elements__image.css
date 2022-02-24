@@ -1,7 +1,45 @@
 .elements__image {
   width: 100%;
+  height: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   color: #fff;
   object-fit: cover;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 810px) {
+  .elements__image {
+    height: 242px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .elements__image {
+    height: 222px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .elements__image {
+    height: 192px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .elements__image {
+    height: 242px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .elements__image {
+    height: 202px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .elements__image {
+    height: 282px;
+  }
 }

@@ -31,18 +31,12 @@
         <section>
           <ul class="elements">
             <li class="elements__item">
-              <img src="./images/elements/Karachaevsk.jpg" alt="Карачаевск" class="elements__image">
-              <div class="elements__name-container">
-                <h3 class="elements__name">Карачаевск</h3>
-                <button type="button" class="elements__like elements__like_active"></button>
-              </div>
-            </li>
-            <li class="elements__item">
               <img src="./images/elements/Elbrus.jpg" alt="гора Эльбрус" class="elements__image">
               <div class="elements__name-container">
                 <h3 class="elements__name">Гора Эльбрус</h3>
                 <button type="button" class="elements__like"></button>
               </div>
+              <button type="button" class="elements__trash"></button>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Dombaj.jpg" alt="Домбай" class="elements__image">
@@ -50,6 +44,7 @@
                 <h3 class="elements__name">Домбай</h3>
                 <button type="button" class="elements__like"></button>
               </div>
+              <button type="button" class="elements__trash"></button>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Elbrus.jpg" alt="гора Эльбрус" class="elements__image">
@@ -57,6 +52,7 @@
                 <h3 class="elements__name">Гора Эльбрус</h3>
                 <button type="button" class="elements__like"></button>
               </div>
+              <button type="button" class="elements__trash"></button>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Dombaj.jpg" alt="Домбай" class="elements__image">
@@ -64,6 +60,7 @@
                 <h3 class="elements__name">Домбай</h3>
                 <button type="button" class="elements__like"></button>
               </div>
+              <button type="button" class="elements__trash"></button>
             </li>
             <li class="elements__item">
               <img src="./images/elements/Karachaevsk.jpg" alt="Карачаевск" class="elements__image">
@@ -71,6 +68,7 @@
                 <h3 class="elements__name">Карачаево-Черкессия</h3>
                 <button type="button" class="elements__like"></button>
               </div>
+              <button type="button" class="elements__trash"></button>
             </li>
           </ul>
         </section>
@@ -82,20 +80,54 @@
         </p>
       </footer>
 
-      <div class="popup popup_opened">
+      <div class="popup popup_type_profile">
         <div class="popup__container">
           <h2 class="popup__heading">Редактировать профиль</h2>
           <form action="#" class="form" name="user">
             <fieldset class="form__input-container">
-              <input type="text" class="form__input-item" name="user-name" placeholder="Имя">
-              <input type="text" class="form__input-item" name="user-about" placeholder="О себе">
+              <input type="text" class="form__input-item form__input-item_name" name="user-name" placeholder="Имя">
+              <input type="text" class="form__input-item form__input-item_about" name="user-about" placeholder="О себе">
               <button type="submit" class="form__button">Сохранить</button>
             </fieldset>
           </form>
             <button type="button" class="popup__close-button"></button>
         </div>
       </div>
+
+      <div class="popup popup_type_add-item">
+        <div class="popup__container">
+          <h2 class="popup__heading">Новое место</h2>
+          <form action="#" class="form" name="image">
+            <fieldset class="form__input-container">
+              <input type="text" class="form__input-item form__input-item_title" name="image-title" placeholder="Название" required>
+              <input type="text" class="form__input-item form__input-item_link" name="image-link" placeholder="Ссылка на картинку" required>
+              <button type="submit" class="form__button">Создать</button>
+            </fieldset>
+          </form>
+            <button type="button" class="popup__close-button"></button>
+        </div>
+      </div>
+
+      <div class="popup popup_type_full-item">
+        <div class="popup__container popup__container_type_full-item">
+          <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="">
+          <h2 class="popup__image-title">Новое место</h2>
+          <button type="button" class="popup__close-button"></button>
+        </div>
+      </div>
+
+      <template class="item-template">
+        <li class="elements__item">
+          <img src="" alt="" class="elements__image">
+          <div class="elements__name-container">
+            <h3 class="elements__name"></h3>
+            <button type="button" class="elements__like"></button>
+          </div>
+          <button type="button" class="elements__trash"></button>
+        </li>
+      </template>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
