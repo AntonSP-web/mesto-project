@@ -42,6 +42,14 @@ const initialCards = [
 
 // profile popUp
 
+function openPopUp(popup) {
+  popup.classList.add('popup_opened');
+};
+
+function closePopUp(popup) {
+  popup.classList.remove('popup_opened');
+}
+
 profileEditButton.addEventListener('click', function() {
   openPopUp(profilePopUp);
   nameInput.value = profileName.textContent;
@@ -63,6 +71,13 @@ addItemCloseButton.addEventListener('click', function() {
 })
 
 // save profile changes
+
+function submitProfile(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+  closePopUp(profilePopUp);
+}
 
 profileForm.addEventListener('submit', submitProfile);
 
@@ -136,17 +151,6 @@ closeItemPopUpButton.addEventListener('click', function() {
   closePopUp(fullItemPopUp);
 })
 
-function openPopUp(popup) {
-  popup.classList.add('popup_opened');
-};
 
-function closePopUp(popup) {
-  popup.classList.remove('popup_opened');
-}
 
-function submitProfile(evt) {
-  evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileAbout.textContent = aboutInput.value;
-  closePopUp(profilePopUp);
-}
+
