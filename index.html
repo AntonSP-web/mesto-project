@@ -46,8 +46,8 @@
           <h2 class="popup__heading">Редактировать профиль</h2>
           <form action="#" class="form" name="user">
             <fieldset class="form__input-container">
-              <input type="text" class="form__input-item form__input-item_name" name="user-name" placeholder="Имя">
-              <input type="text" class="form__input-item form__input-item_about" name="user-about" placeholder="О себе">
+              <input type="text" class="form__input-item form__input-item_type_name" name="user-name" placeholder="Имя">
+              <input type="text" class="form__input-item form__input-item_type_about" name="user-about" placeholder="О себе">
               <button type="submit" class="form__button">Сохранить</button>
             </fieldset>
           </form>
@@ -60,8 +60,8 @@
           <h2 class="popup__heading">Новое место</h2>
           <form action="#" class="form" name="image">
             <fieldset class="form__input-container">
-              <input type="text" class="form__input-item form__input-item_title" name="image-title" placeholder="Название" required>
-              <input type="text" class="form__input-item form__input-item_link" name="image-link" placeholder="Ссылка на картинку" required>
+              <input type="text" class="form__input-item form__input-item_type_title" name="image-title" placeholder="Название" required>
+              <input type="url" class="form__input-item form__input-item_type_link" name="image-link" placeholder="Ссылка на картинку" required>
               <button type="submit" class="form__button">Создать</button>
             </fieldset>
           </form>
@@ -71,8 +71,8 @@
 
       <div class="popup popup_type_full-item">
         <div class="popup__container popup__container_type_full-item">
-          <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="">
-          <h2 class="popup__image-title">Новое место</h2>
+          <img class="popup__image" src="" alt="">
+          <h2 class="popup__image-title"></h2>
           <button type="button" class="popup__close-button"></button>
         </div>
       </div>
@@ -89,6 +89,7 @@
       </template>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="./initial-card.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
