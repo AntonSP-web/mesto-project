@@ -15,8 +15,10 @@ const pictureName = addPictureForm.querySelector('.form__input-item_type_title')
 const pictureLink = addPictureForm.querySelector('.form__input-item_type_link');
 const elementsList = container.querySelector('.elements');
 const fullItemPopUp = container.querySelector('.popup_type_full-item');
+const closeItemPopUpButton = fullItemPopUp.querySelector('.popup__close-button');
 const popUpImageTitle = fullItemPopUp.querySelector('.popup__image-title');
 const popUpImage = fullItemPopUp.querySelector('.popup__image');
+const elementTemplate = container.querySelector('.item-template').content;
 
 // profile popUp
 
@@ -61,14 +63,34 @@ profileForm.addEventListener('submit', handleSubmitProfile);
 
 // 6 pictures by default
 
-const elementTemplate = container.querySelector('.item-template').content;
+
 
 function createElement(elementName, elementLink) {
   const element= elementTemplate.querySelector('.elements__item').cloneNode(true);
+  const cardImage = element.querySelector('.elements__image');
+  const cardName = element.querySelector('.elements__name');
+  const likeButton = element.querySelector('.elements__like');
+  const trashButton = element.querySelector('.elements__trash');
 
-  element.querySelector('.elements__image').src = elementLink;
-  element.querySelector('.elements__image').alt = elementName;
+
+  cardImage.src = elementLink;
+  cardImage.alt = elementName;
   element.querySelector('.elements__name').textContent = elementName;
+
+  likeButton.addEventListener('click', () => {
+    likeButton.classList.toggle('elements__like_active');
+  })
+
+  trashButton.addEventListener('click', () => {
+    element.remove();
+  })
+
+  cardImage.addEventListener('click', () => {
+    openPopUp(fullItemPopUp);
+    popUpImage.src = cardImage.src;
+    popUpImage.alt = cardImage.alt;
+    popUpImageTitle.textContent = cardName.textContent;
+  })
 
   elementsList.prepend(element);
 }
@@ -79,11 +101,11 @@ initialCards.forEach(item => {
 
 // add likes
 
-elementsList.addEventListener('click', function(evt) {
-  if(evt.target.classList.contains('elements__like')) {
-    evt.target.classList.toggle('elements__like_active');
-  }
-})
+// elementsList.addEventListener('click', function(evt) {
+//   if(evt.target.classList.contains('elements__like')) {
+//     evt.target.classList.toggle('elements__like_active');
+//   }
+// })
 
 // add pictures by user
 
@@ -98,30 +120,30 @@ addPictureForm.addEventListener('submit', handleSubmitNewCard);
 
 // delete items
 
-elementsList.addEventListener('click', function(evt) {
-  if(evt.target.classList.contains('elements__trash')) {
-    const item = evt.target.closest('.elements__item');
-    item.remove();
-  }
-})
+// elementsList.addEventListener('click', function(evt) {
+//   if(evt.target.classList.contains('elements__trash')) {
+//     const item = evt.target.closest('.elements__item');
+//     item.remove();
+//   }
+// })
 
 // open full item popup
 
 
-elementsList.addEventListener('click', function(evt) {
-  if(evt.target.classList.contains('elements__image')) {
+// elementsList.addEventListener('click', function(evt) {
+//   if(evt.target.classList.contains('elements__image')) {
 
-    const imageName = evt.target.closest('.elements__item').querySelector('.elements__name');
-    const image = evt.target.closest('.elements__item').querySelector('.elements__image');
-    popUpImageTitle.textContent = imageName.textContent;
-    popUpImage.src = image.src;
-    popUpImage.alt = image.alt;
-    openPopUp(fullItemPopUp);
-  }
-})
+//     const imageName = evt.target.closest('.elements__item').querySelector('.elements__name');
+//     const image = evt.target.closest('.elements__item').querySelector('.elements__image');
+//     popUpImageTitle.textContent = imageName.textContent;
+//     popUpImage.src = image.src;
+//     popUpImage.alt = image.alt;
+//     openPopUp(fullItemPopUp);
+//   }
+// })
 
 // close full item popup
-const closeItemPopUpButton = fullItemPopUp.querySelector('.popup__close-button');
+
 
 closeItemPopUpButton.addEventListener('click', function() {
   closePopUp(fullItemPopUp);
