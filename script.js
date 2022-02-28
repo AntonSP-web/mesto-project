@@ -10,16 +10,12 @@ const newCardPopup = container.querySelector('.popup_type_add-item');
 const newCardButton = container.querySelector('.profile__button-add');
 const newCardCloseButton = newCardPopup.querySelector('.popup__close-button');
 const profileForm = profilePopUp.querySelector('.form');
-const addPictureForm = newCardPopup.querySelector('.form');
-const pictureName = addPictureForm.querySelector(
-  '.form__input-item_type_title'
-);
-const pictureLink = addPictureForm.querySelector('.form__input-item_type_link');
+const newCardForm = newCardPopup.querySelector('.form');
+const pictureName = newCardForm.querySelector('.form__input-item_type_title');
+const pictureLink = newCardForm.querySelector('.form__input-item_type_link');
 const elementsList = container.querySelector('.elements');
 const fullItemPopUp = container.querySelector('.popup_type_full-item');
-const closeItemPopUpButton = fullItemPopUp.querySelector(
-  '.popup__close-button'
-);
+const fullItemPopUpCloseButton = fullItemPopUp.querySelector('.popup__close-button');
 const popUpImageTitle = fullItemPopUp.querySelector('.popup__image-title');
 const popUpImage = fullItemPopUp.querySelector('.popup__image');
 const elementTemplate = container.querySelector('.item-template').content;
@@ -40,7 +36,7 @@ function handleProfileEditButton() {
   aboutInput.value = profileAbout.textContent;
 }
 
-function handleProfileCloseButton() {
+function handleProfileClose() {
   closePopUp(profilePopUp);
 }
 
@@ -50,7 +46,7 @@ function handleNewCardButton() {
 }
 
 // close new card popup
-function handleNewCardCloseButton() {
+function handleNewCardClose() {
   closePopUp(newCardPopup);
 }
 
@@ -64,9 +60,7 @@ function handleSubmitProfile(evt) {
 
 //create image item by user, delete image by user, add likes and open popup with full image
 function createElement(card) {
-  const element = elementTemplate
-    .querySelector('.elements__item')
-    .cloneNode(true);
+  const element = elementTemplate.querySelector('.elements__item').cloneNode(true);
   const cardImage = element.querySelector('.elements__image');
   const cardName = element.querySelector('.elements__name');
   const likeButton = element.querySelector('.elements__like');
@@ -101,24 +95,25 @@ function renderItem(item, container) {
 // add new image on the page
 function handleSubmitNewCard(evt) {
   evt.preventDefault();
-  const userCards = {};
-  userCards.name = pictureName.value;
-  userCards.link = pictureLink.value;
+  const userCards = {
+    name: pictureName.value,
+    link: pictureLink.value
+  };
   const card = createElement(userCards);
   closePopUp(newCardPopup);
   renderItem(card, elementsList);
-  addPictureForm.reset();
+  newCardForm.reset();
 }
 
 // close full image
-function handleCloseItemPopUpButton() {
+function handleFullItemPopUpClose() {
   closePopUp(fullItemPopUp);
 }
 
 profileEditButton.addEventListener('click', handleProfileEditButton);
-profileCloseButton.addEventListener('click', handleProfileCloseButton);
+profileCloseButton.addEventListener('click', handleProfileClose);
 newCardButton.addEventListener('click', handleNewCardButton);
-newCardCloseButton.addEventListener('click', handleNewCardCloseButton);
+newCardCloseButton.addEventListener('click', handleNewCardClose);
 profileForm.addEventListener('submit', handleSubmitProfile);
 
 // add 6 pictures by default
@@ -127,5 +122,5 @@ initialCards.forEach((item) => {
   renderItem(card, elementsList);
 });
 
-addPictureForm.addEventListener('submit', handleSubmitNewCard);
-closeItemPopUpButton.addEventListener('click', handleCloseItemPopUpButton);
+newCardForm.addEventListener('submit', handleSubmitNewCard);
+fullItemPopUpCloseButton.addEventListener('click', handleFullItemPopUpClose);
