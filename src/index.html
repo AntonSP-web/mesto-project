@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/header/favicon-32x32.png">
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%=require('./images/header/favicon-32x32.png')%>">
 </head>
 <body class="body">
   <div class="page">
@@ -17,7 +16,7 @@
 
       <main class="content">
         <section class="profile">
-          <img src="./images/profile/avatar.jpg" alt="Жак-Ив Кусто" class="profile__photo">
+          <img src="<%=require('./images/profile/avatar.jpg')%>" alt="Жак-Ив Кусто" class="profile__photo">
           <div class="profile__info">
             <div class="profile__container">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -89,7 +88,7 @@
       </template>
     </div>
   </div>
-  <script src="./initial-card.js"></script>
-  <script src="./script.js"></script>
+  <!-- <script src="./initial-card.js"></script>
+  <script src="./script.js"></script> -->
 </body>
 </html>
