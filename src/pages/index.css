@@ -38,6 +38,7 @@
 @import url(../blocks/form/__input-container/form__input-container.css);
 @import url(../blocks/form/__input-item/form__input-item.css);
 @import url(../blocks/form/__button/form__button.css);
+@import url(../blocks/form/__button/_type/form__button_type_disabled.css);
 
 
 

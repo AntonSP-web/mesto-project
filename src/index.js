@@ -59,6 +59,8 @@ function openPopUp(popup) {
 // close popup
 function closePopUp(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeEsc);
+  document.removeEventListener('click', closeOverlay);
 }
 
 function handleProfileEditButton() {
