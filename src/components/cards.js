@@ -1,3 +1,5 @@
+import { openPopUp, container } from './modals';
+
 export const initialCards = [
   {
     name: 'Архыз',
@@ -24,7 +26,7 @@ export const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-const container = document.querySelector('.page__container');
+
 const fullItemPopUp = container.querySelector('.popup_type_full-item');
 const popUpImageTitle = fullItemPopUp.querySelector('.popup__image-title');
 const popUpImage = fullItemPopUp.querySelector('.popup__image');
@@ -59,8 +61,8 @@ export function createElement(card) {
   return element;
 }
 
-function openPopUp(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeEsc);
-  document.addEventListener('click', closeOverlay);
+
+// show item on the page
+export function renderItem(item, container) {
+  container.prepend(item);
 }
