@@ -1,4 +1,6 @@
-import './pages/index.css';
+import '../pages/index.css';
+
+import { initialCards, createElement } from './cards';
 
 const container = document.querySelector('.page__container');
 const profilePopUp = container.querySelector('.popup_type_profile');
@@ -12,43 +14,16 @@ const newCardPopup = container.querySelector('.popup_type_add-item');
 const newCardButton = container.querySelector('.profile__button-add');
 const newCardCloseButton = newCardPopup.querySelector('.popup__close-button');
 const profileForm = profilePopUp.querySelector('.form');
-const saveProfileButton = profileForm.querySelector('.form__button');
 const newCardForm = newCardPopup.querySelector('.form');
 const pictureName = newCardForm.querySelector('.form__input-item_type_title');
 const pictureLink = newCardForm.querySelector('.form__input-item_type_link');
 const elementsList = container.querySelector('.elements');
 const fullItemPopUp = container.querySelector('.popup_type_full-item');
 const fullItemPopUpCloseButton = fullItemPopUp.querySelector('.popup__close-button');
-const popUpImageTitle = fullItemPopUp.querySelector('.popup__image-title');
-const popUpImage = fullItemPopUp.querySelector('.popup__image');
-const elementTemplate = container.querySelector('.item-template').content;
+// const popUpImageTitle = fullItemPopUp.querySelector('.popup__image-title');
+// const popUpImage = fullItemPopUp.querySelector('.popup__image');
+// const elementTemplate = container.querySelector('.item-template').content;
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 // open popUp
 function openPopUp(popup) {
@@ -65,9 +40,11 @@ function closePopUp(popup) {
 }
 
 function handleProfileEditButton() {
+  clearErrors(profileForm);
   openPopUp(profilePopUp);
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
+  setSubmitButtonState(profileForm);
 }
 
 function handleProfileClose() {
@@ -76,6 +53,8 @@ function handleProfileClose() {
 
 // open new card popup
 function handleNewCardButton() {
+  clearErrors(newCardForm);
+  resetForm(newCardForm);
   openPopUp(newCardPopup);
 }
 
@@ -92,34 +71,34 @@ function handleSubmitProfile(evt) {
   closePopUp(profilePopUp);
 }
 
-//create image item by user, delete image by user, add likes and open popup with full image
-function createElement(card) {
-  const element = elementTemplate.querySelector('.elements__item').cloneNode(true);
-  const cardImage = element.querySelector('.elements__image');
-  const cardName = element.querySelector('.elements__name');
-  const likeButton = element.querySelector('.elements__like');
-  const trashButton = element.querySelector('.elements__trash');
+// //create image item by user, delete image by user, add likes and open popup with full image
+// function createElement(card) {
+//   const element = elementTemplate.querySelector('.elements__item').cloneNode(true);
+//   const cardImage = element.querySelector('.elements__image');
+//   const cardName = element.querySelector('.elements__name');
+//   const likeButton = element.querySelector('.elements__like');
+//   const trashButton = element.querySelector('.elements__trash');
 
-  cardImage.src = card.link;
-  cardImage.alt = card.name;
-  cardName.textContent = card.name;
+//   cardImage.src = card.link;
+//   cardImage.alt = card.name;
+//   cardName.textContent = card.name;
 
-  likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('elements__like_active');
-  });
+//   likeButton.addEventListener('click', () => {
+//     likeButton.classList.toggle('elements__like_active');
+//   });
 
-  trashButton.addEventListener('click', () => {
-    element.remove();
-  });
+//   trashButton.addEventListener('click', () => {
+//     element.remove();
+//   });
 
-  cardImage.addEventListener('click', () => {
-    popUpImage.src = cardImage.src;
-    popUpImage.alt = cardImage.alt;
-    popUpImageTitle.textContent = cardName.textContent;
-    openPopUp(fullItemPopUp);
-  });
-  return element;
-}
+//   cardImage.addEventListener('click', () => {
+//     popUpImage.src = cardImage.src;
+//     popUpImage.alt = cardImage.alt;
+//     popUpImageTitle.textContent = cardName.textContent;
+//     openPopUp(fullItemPopUp);
+//   });
+//   return element;
+// }
 
 // show item on the page
 function renderItem(item, container) {
@@ -137,7 +116,6 @@ function handleSubmitNewCard(evt) {
   closePopUp(newCardPopup);
   renderItem(card, elementsList);
   newCardForm.reset();
-  // setSubmitButtonState(false);
 }
 
 // close full image
@@ -195,10 +173,8 @@ function hideInputError(formElement, inputElement) {
 function isValid(formElement, inputElement) {
   if(!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
-    // setSubmitButtonState(false);
   } else {
     hideInputError(formElement, inputElement);
-    // setSubmitButtonState(true)
   }
 }
 
@@ -206,7 +182,7 @@ function setEventListeners(formElement) {
   const inputList = Array.from(formElement.querySelectorAll('.form__input-item'));
   const buttonElement = formElement.querySelector('.form__button');
 
-  toggleButtonState(inputList, buttonElement);
+  // toggleButtonState(inputList, buttonElement);
 
   inputList.forEach(inputElement => {
     inputElement.addEventListener('input', () => {
@@ -246,4 +222,22 @@ function toggleButtonState(inputList, buttonElement) {
     buttonElement.classList.remove('form__button_type_disabled');
     buttonElement.removeAttribute('disabled');
   }
+}
+
+function setSubmitButtonState(formElement) {
+  const submitButton = formElement.querySelector('.form__button');
+  const inputList = Array.from(formElement.querySelectorAll('.form__input-item'));
+  toggleButtonState(inputList, submitButton);
+}
+
+function resetForm(formElement) {
+  formElement.reset();
+  setSubmitButtonState(formElement);
+}
+
+function clearErrors(formElement) {
+  const inputList = formElement.querySelectorAll('.form__input-item');
+  inputList.forEach(inputElement => {
+    hideInputError(formElement, inputElement);
+  })
 }
