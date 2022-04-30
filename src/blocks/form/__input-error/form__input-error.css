@@ -5,6 +5,7 @@
   visibility: hidden;
   opacity: 0;
   font-weight: 400;
-  margin: 5px 0 13px;
-  display: inline-block;
+  margin: 5px 0 1px;
+  display: block;
+  min-height: 30px;
 }
