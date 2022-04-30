@@ -1,36 +1,5 @@
-import { openPopUp, container } from './modals';
-
-// export const initialCards = [
-//   {
-//     name: 'Архыз',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-//   },
-//   {
-//     name: 'Челябинская область',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-//   },
-//   {
-//     name: 'Иваново',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-//   },
-//   {
-//     name: 'Камчатка',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-//   },
-//   {
-//     name: 'Холмогорский район',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-//   },
-//   {
-//     name: 'Байкал',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-//   }
-// ];
-
-const fullItemPopUp = container.querySelector('.popup_type_full-item');
-const popUpImageTitle = fullItemPopUp.querySelector('.popup__image-title');
-const popUpImage = fullItemPopUp.querySelector('.popup__image');
-const elementTemplate = container.querySelector('.item-template').content;
+import { openPopUp } from './modals';
+import { popUpImageTitle, popUpImage, elementTemplate, fullItemPopUp } from './data';
 
 //create image item by user, delete image by user, add likes and open popup with full image
 export function createElement(card) {
@@ -53,11 +22,12 @@ export function createElement(card) {
   });
 
   cardImage.addEventListener('click', () => {
-    popUpImage.src = cardImage.src;
-    popUpImage.alt = cardImage.alt;
-    popUpImageTitle.textContent = cardName.textContent;
+    popUpImage.src = card.link;
+    popUpImage.alt = card.name;
+    popUpImageTitle.textContent = card.name;
     openPopUp(fullItemPopUp);
   });
+
   return element;
 }
 

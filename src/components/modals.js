@@ -1,5 +1,3 @@
-export const container = document.querySelector('.page__container');
-
 // open popUp
 export function openPopUp(popup) {
   popup.classList.add('popup_opened');

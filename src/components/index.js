@@ -1,28 +1,9 @@
 import '../pages/index.css';
 
-import { initialCards } from './data';
+import { initialCards, settings, container, profilePopUp, profileEditButton, profileCloseButton, nameInput, aboutInput, profileName, profileAbout, newCardPopup, newCardButton, newCardCloseButton, profileForm, newCardForm, pictureName, pictureLink, elementsList, fullItemPopUp, fullItemPopUpCloseButton } from './data';
 import { createElement, renderItem } from './cards';
-import { openPopUp, closePopUp, container } from './modals';
-import { clearErrors, enableValidation, resetForm, setSubmitButtonState, settings } from './validate';
-
-
-const profilePopUp = container.querySelector('.popup_type_profile');
-const profileEditButton = container.querySelector('.profile__button-edit');
-const profileCloseButton = profilePopUp.querySelector('.popup__close-button');
-const nameInput = profilePopUp.querySelector('.form__input-item_type_name');
-const aboutInput = profilePopUp.querySelector('.form__input-item_type_about');
-const profileName = container.querySelector('.profile__name');
-const profileAbout = container.querySelector('.profile__subtitle');
-const newCardPopup = container.querySelector('.popup_type_add-item');
-const newCardButton = container.querySelector('.profile__button-add');
-const newCardCloseButton = newCardPopup.querySelector('.popup__close-button');
-const profileForm = profilePopUp.querySelector('.form');
-const newCardForm = newCardPopup.querySelector('.form');
-const pictureName = newCardForm.querySelector('.form__input-item_type_title');
-const pictureLink = newCardForm.querySelector('.form__input-item_type_link');
-const elementsList = container.querySelector('.elements');
-const fullItemPopUp = container.querySelector('.popup_type_full-item');
-const fullItemPopUpCloseButton = fullItemPopUp.querySelector('.popup__close-button');
+import { openPopUp, closePopUp } from './modals';
+import { clearErrors, enableValidation, resetForm, setSubmitButtonState } from './validate';
 
 function handleProfileEditButton() {
   clearErrors(profileForm, settings);

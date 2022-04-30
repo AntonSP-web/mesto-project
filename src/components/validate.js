@@ -1,11 +1,4 @@
-export const settings = {
-  formSelector: '.form',
-  inputSelector: '.form__input-item',
-  submitButtonSelector: '.form__button',
-  inactiveButtonClass: 'form__button_type_disabled',
-  inputErrorClass: 'form__input-item_type_error',
-  errorClass: 'form__input-error_type_active'
-};
+import { settings } from "./data";
 
 // очищение всех ошибок в форме
 export function clearErrors(formElement, settings) {
