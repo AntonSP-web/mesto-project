@@ -9,7 +9,7 @@ export const settings = {
 
 // очищение всех ошибок в форме
 export function clearErrors(formElement, settings) {
-  const inputList = formElement.querySelectorAll('.form__input-item');
+  const inputList = formElement.querySelectorAll(settings.inputSelector);
   inputList.forEach(inputElement => {
     hideInputError(formElement, inputElement, settings);
   })

@@ -1,8 +1,10 @@
 import '../pages/index.css';
 
-import { initialCards, createElement, renderItem } from './cards';
+import { initialCards } from './data';
+import { createElement, renderItem } from './cards';
 import { openPopUp, closePopUp, container } from './modals';
 import { clearErrors, enableValidation, resetForm, setSubmitButtonState, settings } from './validate';
+
 
 const profilePopUp = container.querySelector('.popup_type_profile');
 const profileEditButton = container.querySelector('.profile__button-edit');
